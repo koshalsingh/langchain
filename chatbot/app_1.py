@@ -9,8 +9,6 @@ load_dotenv()
 
 # Set API key for Hugging Face
 HUGGINGFACE_API_KEY = os.getenv("HUGGINGFACEHUB_API_TOKEN", "")
-os.environ["LANGCHAIN_API_KEY"] = os.getenv("LANGCHAIN_API_KEY", "")
-os.environ["LANGCHAIN_TRACING_V2"] = "true"  # For LangSmith tracing
 
 # Check API Key
 if not HUGGINGFACE_API_KEY:
