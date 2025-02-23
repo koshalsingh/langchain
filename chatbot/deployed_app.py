@@ -6,14 +6,6 @@ from langchain.llms import HuggingFaceHub  # Use Hugging Face API
 import requests
 from streamlit_lottie import st_lottie
 
-# Load environment variables
-load_dotenv()
-
-# Set API key for Hugging Face
-HUGGINGFACE_API_KEY = os.getenv("HUGGINGFACEHUB_API_TOKEN", "")
-os.environ["LANGCHAIN_API_KEY"] = os.getenv("LANGCHAIN_API_KEY", "")
-os.environ["LANGCHAIN_TRACING_V2"] = "true"  # For LangSmith tracing
-
 # Function to load Lottie animations
 def load_lottieurl(url: str):
     r = requests.get(url)
@@ -53,7 +45,7 @@ with st.sidebar:
     st.markdown("""
     **Koshal Kumar**
 
-    Software Engineer & AI Enthusiast
+    Data Scientist & AI Enthusiast
     """)
 
     st.markdown("""
@@ -70,14 +62,21 @@ with st.sidebar:
 # Main content
 st.title("Langchain Chatbot DEMO with Llama 3 (Hugging Face API)")
 
+
+# API Key input
+api_key = st.text_input("Enter your Hugging Face API Key (api_xxx...)")
+
 # Prompt Template
 prompt = ChatPromptTemplate.from_messages([
     ("system", "You are a helpful assistant. Please respond to the user query."),
     ("human", "Question: {question}")
 ])
 
-# API Key input
-st.text_input("Enter your Hugging Face API Key (api_xxx...)", key="api_key")
+# Check API Key
+if not api_key:
+    st.warning("Please provide your Hugging Face API key to use this chatbot.")
+    st.info("To create a Hugging Face API key, follow these steps:\n1. Go to [Hugging Face API Key Page](https://huggingface.co/settings/tokens)\n2. Click on 'Create new token'.\n3. Copy the token and paste it here.")
+    st.stop()
 
 input_text = st.text_input("Enter your question here")
 
@@ -85,7 +84,7 @@ input_text = st.text_input("Enter your question here")
 llm = HuggingFaceHub(
     repo_id="meta-llama/Meta-Llama-3-8B",  # Updated to Llama 3
     model_kwargs={"temperature": 0.7, "max_length": 100},
-    huggingfacehub_api_token=HUGGINGFACE_API_KEY
+    huggingfacehub_api_token=api_key
 )
 
 # Process user input

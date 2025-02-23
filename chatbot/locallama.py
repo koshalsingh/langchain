@@ -8,16 +8,16 @@ from langchain.llms import Ollama
 load_dotenv()
 
 # Set API key for Hugging Face
-HUGGINGFACE_API_KEY = os.getenv("HUGGINGFACEHUB_API_TOKEN", "")
+# HUGGINGFACE_API_KEY = os.getenv("HUGGINGFACEHUB_API_TOKEN", "")
 os.environ["LANGCHAIN_API_KEY"] = os.getenv("LANGCHAIN_API_KEY", "")
 os.environ["LANGCHAIN_TRACING_V2"] = "true"  # For LangSmith tracing
 
 # deepseek-r1:1.5b
 
 # Check API Key
-if not HUGGINGFACE_API_KEY:
-    st.error("Please set your Hugging Face API key in the environment variables.")
-    st.stop()
+# if not HUGGINGFACE_API_KEY:
+#     st.error("Please set your Hugging Face API key in the environment variables.")
+#     st.stop()
 
 # Prompt Template
 prompt = ChatPromptTemplate.from_messages([
@@ -32,8 +32,6 @@ input_text = st.text_input("Enter your question here")
 # Initialize Llama 3 via Hugging Face
 llm = Ollama(
     model="deepseek-r1:1.5b"  # local deepseek model
-    # model_kwargs={"temperature": 0.7, "max_length": 512},
-    # huggingfacehub_api_token=HUGGINGFACE_API_KEY
 )
 
 # Process user input
