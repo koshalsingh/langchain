@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from langchain.prompts import ChatPromptTemplate
 from langchain.llms import HuggingFaceHub  # Use Hugging Face API
 import requests
-from streamlit_lottie import st_lottie
+# from streamlit_lottie import st_lottie
 
 # Load environment variables
 load_dotenv()

@@ -14,11 +14,6 @@ os.environ["LANGCHAIN_TRACING_V2"] = "true"  # For LangSmith tracing
 
 # deepseek-r1:1.5b
 
-# Check API Key
-# if not HUGGINGFACE_API_KEY:
-#     st.error("Please set your Hugging Face API key in the environment variables.")
-#     st.stop()
-
 # Prompt Template
 prompt = ChatPromptTemplate.from_messages([
     ("system", "You are a helpful assistant. Please respond to the user query. Don't create a longer content. the answer should be concise."),
