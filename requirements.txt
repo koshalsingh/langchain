@@ -1,9 +1,8 @@
-streamlit
-langchain
-langchain_community
-ollama
-lanchain_core
+langchain_openai 
+langchain_core
 python-dotenv
+streamlit
+langchain_community
 langserve
 fastapi
 uvicorn
