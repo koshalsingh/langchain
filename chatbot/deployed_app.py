@@ -81,8 +81,7 @@ if input_text:
     response = llm.invoke(prompt.format(question=input_text))
     st.write("Response:", response)
 
-if st.button("Answer"):
-    st.write("Thinking...")
+st.button("Answer")
 
 # Footer
 st.markdown("""
