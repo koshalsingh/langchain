@@ -5,16 +5,6 @@ from langchain.prompts import ChatPromptTemplate
 from langchain.llms import HuggingFaceHub  # Use Hugging Face API
 import requests
 
-# Function to load Lottie animations
-def load_lottieurl(url: str):
-    r = requests.get(url)
-    if r.status_code != 200:
-        return None
-    return r.json()
-
-# Load Lottie animations
-lottie_chatbot = load_lottieurl("https://assets4.lottiefiles.com/packages/lf20_kqel6cy2.json")
-
 # Set page configuration
 st.set_page_config(page_title="Langchain Chatbot", page_icon="🤖", layout="wide")
 
