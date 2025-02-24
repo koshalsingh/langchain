@@ -71,7 +71,7 @@ input_text = st.text_input("Enter your question here")
 
 # Initialize Llama 3 via Hugging Face
 llm = HuggingFaceHub(
-    repo_id="meta-llama/Llama-2-3b-hf",  # Updated to Llama 3
+    repo_id="meta-llama/Meta-Llama-3-8B",  # Updated to Llama 3
     model_kwargs={"temperature": 0.7, "max_length": 100},
     huggingfacehub_api_token=api_key
 )
