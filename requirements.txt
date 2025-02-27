@@ -8,3 +8,8 @@ fastapi
 uvicorn
 huggingface_hub
 langchain-groq
+sse_starlette
+bs4
+pypdf
+chromadb
+faiss-cpu
