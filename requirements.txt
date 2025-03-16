@@ -19,3 +19,4 @@ wikipedia
 langchainhub
 ollama
 Ollama
+sentence_transformers
